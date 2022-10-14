@@ -1,0 +1,29 @@
+#change the hostname
+hostnamectl set-hostname SRV-LIN1-02
+
+#network files
+sudo cat <<'EOF'  > /etc/network/interfaces
+
+"# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+\n
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug ens32
+iface ens32 inet static
+        address 10.10.10.11/24
+        gateway 10.10.10.2
+        # dns-* options are implemented by the resolvconf package, if installed
+        dns-nameservers 10.10.10.2
+        dns-search Lin1.local
+       
+
+EOF
+
+
+
