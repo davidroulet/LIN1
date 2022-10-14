@@ -1,12 +1,21 @@
 #change the hostname
-hostnamectl set-hostname SRV-LIN1-02
+Servername=SRV-LIN1-02
+
+hostnamectl set-hostname $Servername
 
 #network files
+
+ipaddress=10.10.10.11
+mask=24
+ipgateway=10.10.10.2
+ipdns-nameservers=10.10.10.2
+
+
 sudo cat <<'EOF'  > /etc/network/interfaces
 
 "# This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
-\n
+
 source /etc/network/interfaces.d/*
 
 # The loopback network interface
@@ -16,14 +25,11 @@ iface lo inet loopback
 # The primary network interface
 allow-hotplug ens32
 iface ens32 inet static
-        address 10.10.10.11/24
-        gateway 10.10.10.2
+        address $ipaddress/$24
+        gateway $ipgateway
         # dns-* options are implemented by the resolvconf package, if installed
-        dns-nameservers 10.10.10.2
+        dns-nameservers $ipdns-nameservers
         dns-search Lin1.local
        
 
 EOF
-
-
-
