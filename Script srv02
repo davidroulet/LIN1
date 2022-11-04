@@ -6,7 +6,7 @@ hostnamectl set-hostname SRV-LIN1-02
 
 sudo cat <<'EOF'  > /etc/network/interfaces
 
-"# This file describes the network interfaces available on your system
+# This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
 
 source /etc/network/interfaces.d/*
