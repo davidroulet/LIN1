@@ -1,6 +1,6 @@
 #change the hostname
 
-hostnamectl set-hostname SRV-LIN1-02
+hostnamectl set-hostname SRV-LIN1-01
 
 #network files
 
@@ -18,7 +18,7 @@ iface lo inet loopback
 # The primary network interface
 allow-hotplug ens32
 iface ens32 inet static
-        address 10.10.10.22/24
+        address 10.10.10.11/24
         gateway 10.10.10.2
         # dns-* options are implemented by the resolvconf package, if installed
         dns-nameservers 10.10.10.2
